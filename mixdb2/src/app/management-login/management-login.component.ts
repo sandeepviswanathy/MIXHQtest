@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router/';
-//import { UserService } from '../user.service'; //TODO actiavte late
+import { UserService } from '../user.service'; //TODO actiavte late
 
 //HttpClientModule
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
 
 @Component({
-  selector: 'app-managementlogin',
-  templateUrl: './managementlogin.component.html',
-  styleUrls: ['./managementlogin.component.css']
+  selector: 'app-management-login',
+  templateUrl: './management-login.component.html',
+  styleUrls: ['./management-login.component.css']
 })
-export class ManagementloginComponent implements OnInit {
+export class ManagementLoginComponent implements OnInit {
 
 	//constructor() { }
 
-	//constructor(private router: Router, private user:UserService, private http: HttpClient) { }
+	constructor(private router: Router, private user:UserService, private http: HttpClient) { }
 
-	constructor(private router: Router, private http: HttpClient) { }
+	// constructor(private router: Router, private http: HttpClient) { }
 
 	ngOnInit() {
 		let headers = new HttpHeaders({ // this is where we'd want to dynamically input the login details from the page/form
@@ -53,31 +53,31 @@ export class ManagementloginComponent implements OnInit {
 		}
   }
 
-	// loginUser(e) {
-  //
-	// 	// why is it e.target??
-	// 	var username = e.target.elements[0].value;
-	// 	var password = e.target.elements[1].value;
-	// 	console.log(username, password);
-	// 	//everything below here is manual comparison
-	// 	//this will eventually need to be changed to an http call to db to authenticate user
-	// 	if(username == 'admin' && password == 'admin') {
-	// 		this.user.setUserLoggedIn();
-	// 		this.router.navigate(['dashboard']);
-	// 	}
-	// }
-  //
-	// swipeinUser(e) {
-  //
-	// 	// why is it e.target??
-	// 	var swipeCode = e.target.elements[0].value;
-	// 	console.log(swipeCode);
-	// 	//everything below here is manual comparison
-	// 	//this will eventually need to be changed to an http call to db to authenticate user
-	// 	if(swipeCode == '%MASON?;5890242000011097?') {
-	// 		this.user.setUserLoggedIn();
-	// 		this.router.navigate(['dashboard']);
-	// 	}
-	// }
+	loginUser(e) {
+
+		// why is it e.target??
+		var username = e.target.elements[0].value;
+		var password = e.target.elements[1].value;
+		console.log(username, password);
+		//everything below here is manual comparison
+		//this will eventually need to be changed to an http call to db to authenticate user
+		if(username == 'admin' && password == 'admin') {
+			this.user.setUserLoggedIn();
+			this.router.navigate(['ManagementMenu']);
+		}
+	}
+
+	swipeinUser(e) {
+
+		// why is it e.target??
+		var swipeCode = e.target.elements[0].value;
+		console.log(swipeCode);
+		//everything below here is manual comparison
+		//this will eventually need to be changed to an http call to db to authenticate user
+		if(swipeCode == '%MASON?;5890242000011097?') {
+			this.user.setUserLoggedIn();
+			this.router.navigate(['ManagementMenu']);
+		}
+	}
 
 }

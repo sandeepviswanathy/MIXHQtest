@@ -1,0 +1,46 @@
+<!-- we can also use ngModel to bind this action i think -->
+<form (submit)="loginUser($event)">
+	<div id="logindiv">
+
+		<div class="input">
+			<label>Username</label>
+			<input type="text" />
+		</div>
+
+		<div class="input">
+			<label>Password</label>
+			<input type="password" />
+		</div>
+
+		<div id="LogInButton" class="input">
+			<input type="submit" value="Login" />
+		</div>
+
+	</div>
+
+</form>
+
+<form (submit)="swipeinUser($event)">
+
+	<div id="ordiv">
+
+		<div>
+			OR
+		</div>
+
+	</div>
+
+	<div id="swipediv">
+
+		<div class='input'>
+			<label>Swipe In</label>
+			<input type="password" />
+		</div>
+
+		<div id="SwipeInButton" class="input">
+			<input type="submit" value="Login" />
+		</div>
+
+	</div>
+
+</form>
